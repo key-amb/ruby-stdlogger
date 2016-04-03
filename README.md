@@ -37,6 +37,13 @@ Or install it yourself as:
 % gem install logger-with_stdout
 ```
 
+## Spetial Thanks
+
+Thanks to [David](http://stackoverflow.com/users/796195/david) who gave me the
+idea of `MultiIO`.
+
+It is illustrated as [answer to a question in Stack Overflow](http://stackoverflow.com/a/6407200/6150943).
+
 ## Contributing
 
 1. Fork it
