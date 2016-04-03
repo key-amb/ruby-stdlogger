@@ -1,4 +1,4 @@
-# logger-with\_stdout
+# logger-with\_stdout [![Build Status](https://travis-ci.org/key-amb/logger-with_stdout.svg?branch=master)](https://travis-ci.org/key-amb/logger-with_stdout)
 
 This package provides `Logger::WithStdout`, a subclass of stdlib `Logger`.
 
