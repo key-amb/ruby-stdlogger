@@ -47,7 +47,7 @@ describe Logger::WithStdout do
 
   context 'With logdev specified' do
     context 'when STDOUT is TTY' do
-      tmp = Tempfile.open
+      tmp = Tempfile.open 'tmp'
       $stdout = StubStringIO.new
       logger  = Logger::WithStdout.new tmp
       logger.info "we got stdout log"
@@ -68,12 +68,14 @@ describe Logger::WithStdout do
   end
 
   context 'With logfile specified' do
-    tmppath = Pathname(Dir.tmpdir).join('__logger-with_stdout.spec.log')
+    tmppath = Pathname(Dir.tmpdir).join('__logger-with_stdout.spec.log').to_s
     context 'when STDOUT is TTY' do
       $stdout = StubStringIO.new
       logger  = Logger::WithStdout.new tmppath
       logger.info "we got stdout log"
       output  = $stdout.string
+      logger.close
+
       it "can write to STDOUT" do
         expect(output).to match(/we got stdout log/)
       end
@@ -94,6 +96,7 @@ describe Logger::WithStdout do
       logger.info "we got stdout log"
       output  = $stdout.string
       outerr  = $stderr.string
+      logger.close
 
       it "can write to STDOUT" do
         expect(output).to match(/we got stdout log/)
