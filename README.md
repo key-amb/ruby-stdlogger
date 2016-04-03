@@ -9,7 +9,7 @@ And it can also write logs to _STDERR_ by option.
 ## Usage
 
 ```ruby
-require 'logger-with_stdout'
+require 'logger/with_stdout'
 
 # STDOUT only
 logger = Logger::WithStdout.new
