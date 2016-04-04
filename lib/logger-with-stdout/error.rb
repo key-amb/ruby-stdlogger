@@ -1,4 +1,4 @@
-class Logger::WithStdout < ::Logger
+module LoggerWithStdout
   class Error < StandardError
   end
 end

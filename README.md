@@ -1,9 +1,7 @@
-# logger-with\_stdout
+# logger-with-stdout
 
-This package provides `Logger::WithStdout`, a subclass of stdlib `Logger`.
-
-It enables to create loggers which write logs to _STDOUT_ as well when _STDOUT_
-is TTY.  
+This package enables to create `Logger` object which writes logs to _STDOUT_ in
+addition to specified log device when _STDOUT_ is TTY.  
 And it can also write logs to _STDERR_ by option.
 
 ## Usage
@@ -12,15 +10,15 @@ And it can also write logs to _STDERR_ by option.
 require 'logger-with-stdout'
 
 # STDOUT only
-logger = Logger::WithStdout.new
+logger = LoggerWithStdout.logger
 # logfile and STDOUT
-logger = Logger::WithStdout.new '/path/to/log'
+logger = LoggerWithStdout.logger '/path/to/log'
 # logdev and STDERR
-logger = Logger::WithStdout.new io_obj, stdout: false, stderr: true
+logger = LoggerWithStdout.logger io_obj, stdout: false, stderr: true
 # Other options for Logger::new
-logger = Logger::WithStdout.new io_obj, shift_age: 3, shift_size: 1024 * 1024 * 8
+logger = LoggerWithStdout.logger io_obj, shift_age: 3, shift_size: 1024 * 1024 * 8
 # Doesn't raise error when STDOUT is not TTY
-logger = Logger::WithStdout.new nil, allow_nodev: true
+logger = LoggerWithStdout.logger nil, allow_nodev: true
 ```
 
 ## Installation

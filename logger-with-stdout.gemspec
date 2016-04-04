@@ -6,7 +6,7 @@ require 'logger-with-stdout/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "logger-with-stdout"
-  spec.version       = Logger::WithStdout::VERSION
+  spec.version       = LoggerWithStdout::VERSION
   spec.authors       = ["YASUTAKE Kiyoshi"]
   spec.email         = ["yasutake.kiyoshi@gmail.com"]
 
