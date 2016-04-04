@@ -9,6 +9,6 @@ task :default => :spec
 
 desc 'Open an irb session preloaded with the gem library'
 task :console do
-    sh 'irb -rubygems -I lib -r logger/with_stdout'
+    sh 'irb -rubygems -I lib -r logger-with-stdout'
 end
 task :c => :console

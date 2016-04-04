@@ -1,8 +1,8 @@
 require 'logger'
 
-require "logger/with_stdout/error"
-require "logger/with_stdout/multi_io"
-require "logger/with_stdout/version"
+require "logger-with-stdout/error"
+require "logger-with-stdout/multi_io"
+require "logger-with-stdout/version"
 
 class Logger
   class WithStdout < ::Logger

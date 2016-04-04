@@ -1,6 +1,4 @@
 # logger-with\_stdout
-[![Gem Version](https://badge.fury.io/rb/logger-with_stdout.svg)](https://badge.fury.io/rb/logger-with_stdout)
-[![Build Status](https://travis-ci.org/key-amb/logger-with_stdout.svg?branch=master)](https://travis-ci.org/key-amb/logger-with_stdout)
 
 This package provides `Logger::WithStdout`, a subclass of stdlib `Logger`.
 
@@ -11,7 +9,7 @@ And it can also write logs to _STDERR_ by option.
 ## Usage
 
 ```ruby
-require 'logger-with_stdout'
+require 'logger-with-stdout'
 
 # STDOUT only
 logger = Logger::WithStdout.new
@@ -30,7 +28,7 @@ logger = Logger::WithStdout.new nil, allow_nodev: true
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'logger-with_stdout'
+gem 'logger-with-stdout'
 ```
 
 And then run `bundle` command on your terminal.
@@ -38,7 +36,7 @@ And then run `bundle` command on your terminal.
 Or install it yourself as:
 
 ```sh
-% gem install logger-with_stdout
+% gem install logger-with-stdout
 ```
 
 ## Spetial Thanks

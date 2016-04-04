@@ -83,7 +83,7 @@ describe Logger::WithStdout do
   end
 
   context 'With logfile specified' do
-    tmppath = Pathname(Dir.tmpdir).join('__logger-with_stdout.spec.log').to_s
+    tmppath = Pathname(Dir.tmpdir).join('__logger-with-stdout.spec.log').to_s
     context 'when STDOUT is TTY' do
       $stdout = StubStringIO.new
       logger  = Logger::WithStdout.new tmppath
