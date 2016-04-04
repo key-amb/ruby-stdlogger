@@ -5,6 +5,8 @@ This package enables to create `Logger` object which writes logs to _STDOUT_ in
 addition to specified log device when _STDOUT_ is TTY.  
 And it can also write logs to _STDERR_ by option.
 
+Rewritten from [logger-with_stdout](https://github.com/key-amb/logger-with_stdout).
+
 ## Usage
 
 ```ruby
