@@ -21,6 +21,8 @@ logger = Logger::WithStdout.new '/path/to/log'
 logger = Logger::WithStdout.new io_obj, stdout: false, stderr: true
 # Other options for Logger::new
 logger = Logger::WithStdout.new io_obj, shift_age: 3, shift_size: 1024 * 1024 * 8
+# Doesn't raise error when STDOUT is not TTY
+logger = Logger::WithStdout.new nil, allow_nodev: true
 ```
 
 ## Installation

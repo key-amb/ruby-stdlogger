@@ -1,3 +1,10 @@
+## 0.1.3 (2016/4/4)
+
+Enhancement:
+
+- Add option `:allow_nodev` for `new` method not to raise error when no output
+devices available.
+
 ## 0.1.2 (2016/4/3)
 
 Minor Improve:
