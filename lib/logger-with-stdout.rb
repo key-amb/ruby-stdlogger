@@ -5,6 +5,20 @@ require "logger-with-stdout/multi_io"
 require "logger-with-stdout/version"
 
 module LoggerWithStdout
+
+  # When no target device available, this method raises LoggerWithStdout::Error
+  # without ':allow_nodev' option.
+  # @param logdev [String, IO] path to logfile or writable IO object.
+  # @param options [Hash]
+  # @option options [String] :stdout (true) log to STDOUT or not.
+  # @option options [String] :stderr (false) log to STDERR or not.
+  # @option options [String] :shift_age (0)
+  #  'shift_age' param for Logger#new
+  # @option options [String] :shift_size (1048576)
+  #  'shift_size' param for Logger#new
+  # @option options [String] :allow_nodev (nil)
+  #  don't raise error even if no target device available
+  # @return [Logger]
   def self.logger logdev=nil, options={}
     stdout     = options[:stdout] || true
     stderr     = options[:stderr] || false
