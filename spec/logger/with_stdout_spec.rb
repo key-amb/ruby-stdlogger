@@ -36,11 +36,26 @@ describe Logger::WithStdout do
     end
 
     context 'when STDOUT is not TTY' do
-      it 'raise Logger::WithStdout::Error' do
+      context 'without any option' do
+        it 'raise Logger::WithStdout::Error' do
+          $stdout = StubStringIO.new tty: false
+          expect { Logger::WithStdout.new }.to raise_error(
+            Logger::WithStdout::Error, "No output device found!")
+          $stdout = STDOUT
+        end
+      end
+      context 'with :allow_no_dev option' do
         $stdout = StubStringIO.new tty: false
-        expect { Logger::WithStdout.new }.to raise_error(
-          Logger::WithStdout::Error, "No output device found!")
+        logger  = Logger::WithStdout.new nil, allow_nodev: true
+        logger.info 'No log written'
+        output  = $stdout.string
         $stdout = STDOUT
+        it 'is Logger::WithStdout object' do
+          expect(logger).to be_an_instance_of(Logger::WithStdout)
+        end
+        it 'no log written' do
+          expect(output).to eq ""
+        end
       end
     end
   end

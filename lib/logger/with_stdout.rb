@@ -22,7 +22,7 @@ class Logger
       end
       targets << $stdout if (stdout and $stdout.tty?)
       targets << $stderr if (stderr and $stderr.tty?)
-      if targets.empty?
+      if targets.empty? and !options[:allow_nodev]
         raise Logger::WithStdout::Error, "No output device found!"
       end
       multi_dev = MultiIO.new targets
