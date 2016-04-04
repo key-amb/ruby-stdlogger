@@ -1,3 +1,7 @@
+## 0.2.1 (2016/4/4)
+
+Fix gemspec description.
+
 ## 0.2.0 (2016/4/4)
 
 Re-release as `logger-with-stdout`.
