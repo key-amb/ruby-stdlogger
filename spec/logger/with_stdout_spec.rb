@@ -4,8 +4,8 @@ require 'pathname'
 require 'tempfile'
 
 class StubStringIO < StringIO
-  def initialize tty: true
-    @tty = tty
+  def initialize option={}
+    @tty = option.key?(:tty) ? option[:tty] : true
     super()
   end
   def tty?
