@@ -1,4 +1,5 @@
 # logger-with-stdout
+[![Gem Version](https://badge.fury.io/rb/logger-with-stdout.svg)](https://badge.fury.io/rb/logger-with-stdout)
 [![Build Status](https://travis-ci.org/key-amb/logger-with-stdout.svg?branch=master)](https://travis-ci.org/key-amb/logger-with-stdout)
 
 This package enables to create `Logger` object which writes logs to _STDOUT_ in
