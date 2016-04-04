@@ -1,4 +1,5 @@
 # logger-with-stdout
+[![Build Status](https://travis-ci.org/key-amb/logger-with-stdout.svg?branch=master)](https://travis-ci.org/key-amb/logger-with-stdout)
 
 This package enables to create `Logger` object which writes logs to _STDOUT_ in
 addition to specified log device when _STDOUT_ is TTY.  
