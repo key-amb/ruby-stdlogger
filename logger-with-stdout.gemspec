@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["YASUTAKE Kiyoshi"]
   spec.email         = ["yasutake.kiyoshi@gmail.com"]
 
-  spec.summary       = %q{Subclass of Logger to log TTY STDOUT as well}
-  spec.description   = %q{Subclass of Logger to write logs to STDOUT as well when TTY. Enables to write STDERR by option.}
+  spec.summary       = %q{Make Logger write logs to STDOUT in addition}
+  spec.description   = %q{Creates Logger which writes logs to STDOUT or STDERR in addition to target device.}
   spec.homepage      = "https://github.com/key-amb/logger-with-stdout"
   spec.license       = "MIT"
 
