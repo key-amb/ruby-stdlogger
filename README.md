@@ -1,4 +1,5 @@
 # stdlogger
+[![Gem Version](https://badge.fury.io/rb/stdlogger.svg)](https://badge.fury.io/rb/stdlogger)
 [![Build Status](https://travis-ci.org/key-amb/ruby-stdlogger.svg?branch=master)](https://travis-ci.org/key-amb/ruby-stdlogger)
 
 This package enables to create `Logger` object which writes logs to _STDOUT_ in
