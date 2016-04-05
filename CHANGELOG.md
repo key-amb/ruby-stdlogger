@@ -1,6 +1,10 @@
-## 0.2.1 (2016/4/4)
+## 0.3.0 (2016/4/5)
 
-Fix gemspec description.
+Re-release as `stdlogger`.
+
+Change:
+
+- Rename main module from `LoggerWithStdout` to `StdLogger` and method `#logger` to `#create`.
 
 ## 0.2.0 (2016/4/4)
 
