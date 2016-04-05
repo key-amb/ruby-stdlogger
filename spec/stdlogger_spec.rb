@@ -13,16 +13,16 @@ class StubStringIO < StringIO
   end
 end
 
-describe LoggerWithStdout do
+describe StdLogger do
   it 'has a version number' do
-    expect(LoggerWithStdout::VERSION).not_to be nil
+    expect(StdLogger::VERSION).not_to be nil
   end
 
   context 'With no logfile specified' do
     context 'when STDOUT is TTY' do
       $stdout = StubStringIO.new
-      logger  = LoggerWithStdout.logger
-      it 'is LoggerWithStdout object' do
+      logger  = StdLogger.create
+      it 'is StdLogger object' do
         expect(logger).to be_an_instance_of(Logger)
       end
 
@@ -37,20 +37,20 @@ describe LoggerWithStdout do
 
     context 'when STDOUT is not TTY' do
       context 'without any option' do
-        it 'raise LoggerWithStdout::Error' do
+        it 'raise StdLogger::Error' do
           $stdout = StubStringIO.new tty: false
-          expect { LoggerWithStdout.logger }.to raise_error(
-            LoggerWithStdout::Error, "No output device found!")
+          expect { StdLogger.create }.to raise_error(
+            StdLogger::Error, "No output device found!")
           $stdout = STDOUT
         end
       end
       context 'with :allow_no_dev option' do
         $stdout = StubStringIO.new tty: false
-        logger  = LoggerWithStdout.logger nil, allow_nodev: true
+        logger  = StdLogger.create nil, allow_nodev: true
         logger.info 'No log written'
         output  = $stdout.string
         $stdout = STDOUT
-        it 'is LoggerWithStdout object' do
+        it 'is StdLogger object' do
           expect(logger).to be_an_instance_of(Logger)
         end
         it 'no log written' do
@@ -64,7 +64,7 @@ describe LoggerWithStdout do
     context 'when STDOUT is TTY' do
       tmp = Tempfile.open 'tmp'
       $stdout = StubStringIO.new
-      logger  = LoggerWithStdout.logger tmp
+      logger  = StdLogger.create tmp
       logger.info "we got stdout log"
       output  = $stdout.string
       it "can write to STDOUT" do
@@ -83,10 +83,10 @@ describe LoggerWithStdout do
   end
 
   context 'With logfile specified' do
-    tmppath = Pathname(Dir.tmpdir).join('__logger-with-stdout.spec.log').to_s
+    tmppath = Pathname(Dir.tmpdir).join('__stdlogger.spec.log').to_s
     context 'when STDOUT is TTY' do
       $stdout = StubStringIO.new
-      logger  = LoggerWithStdout.logger tmppath
+      logger  = StdLogger.create tmppath
       logger.info "we got stdout log"
       output  = $stdout.string
       logger.close
@@ -107,7 +107,7 @@ describe LoggerWithStdout do
     context 'when STDOUT and STDERR specified and available' do
       $stdout = StubStringIO.new
       $stderr = StubStringIO.new
-      logger  = LoggerWithStdout.logger(tmppath, stderr: true)
+      logger  = StdLogger.create(tmppath, stderr: true)
       logger.info "we got stdout log"
       output  = $stdout.string
       outerr  = $stderr.string

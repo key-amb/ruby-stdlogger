@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in logger-with-stdout.gemspec
+# Specify your gem's dependencies in stdlogger.gemspec
 gemspec

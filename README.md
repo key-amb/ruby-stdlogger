@@ -1,6 +1,5 @@
-# logger-with-stdout
-[![Gem Version](https://badge.fury.io/rb/logger-with-stdout.svg)](https://badge.fury.io/rb/logger-with-stdout)
-[![Build Status](https://travis-ci.org/key-amb/logger-with-stdout.svg?branch=master)](https://travis-ci.org/key-amb/logger-with-stdout)
+# stdlogger
+[![Build Status](https://travis-ci.org/key-amb/ruby-stdlogger.svg?branch=master)](https://travis-ci.org/key-amb/ruby-stdlogger)
 
 This package enables to create `Logger` object which writes logs to _STDOUT_ in
 addition to specified log device when _STDOUT_ is TTY.  
@@ -13,18 +12,18 @@ Rewritten from [logger-with_stdout](https://github.com/key-amb/logger-with_stdou
 ## Usage
 
 ```ruby
-require 'logger-with-stdout'
+require 'stdlogger'
 
 # STDOUT only
-logger = LoggerWithStdout.logger
+logger = StdLogger.create
 # logfile and STDOUT
-logger = LoggerWithStdout.logger '/path/to/log'
+logger = StdLogger.create '/path/to/log'
 # logdev and STDERR
-logger = LoggerWithStdout.logger io_obj, stdout: false, stderr: true
+logger = StdLogger.create io_obj, stdout: false, stderr: true
 # Other options for Logger::new
-logger = LoggerWithStdout.logger io_obj, shift_age: 3, shift_size: 1024 * 1024 * 8
+logger = StdLogger.create io_obj, shift_age: 3, shift_size: 1024 * 1024 * 8
 # Doesn't raise error when STDOUT is not TTY
-logger = LoggerWithStdout.logger nil, allow_nodev: true
+logger = StdLogger.create nil, allow_nodev: true
 ```
 
 ## Installation
@@ -32,7 +31,7 @@ logger = LoggerWithStdout.logger nil, allow_nodev: true
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'logger-with-stdout'
+gem 'stdlogger'
 ```
 
 And then run `bundle` command on your terminal.
@@ -40,7 +39,7 @@ And then run `bundle` command on your terminal.
 Or install it yourself as:
 
 ```sh
-% gem install logger-with-stdout
+% gem install stdlogger
 ```
 
 ## Spetial Thanks

@@ -1,4 +1,4 @@
-module LoggerWithStdout
+module StdLogger
   class MultiIO
     def initialize targets
       @targets = targets

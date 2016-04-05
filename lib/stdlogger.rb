@@ -1,12 +1,12 @@
 require 'logger'
 
-require "logger-with-stdout/error"
-require "logger-with-stdout/multi_io"
-require "logger-with-stdout/version"
+require "stdlogger/error"
+require "stdlogger/multi_io"
+require "stdlogger/version"
 
-module LoggerWithStdout
+module StdLogger
 
-  # When no target device available, this method raises LoggerWithStdout::Error
+  # When no target device available, this method raises StdLogger::Error
   # without ':allow_nodev' option.
   # @param logdev [String, IO] path to logfile or writable IO object.
   # @param options [Hash]
@@ -19,7 +19,7 @@ module LoggerWithStdout
   # @option options [String] :allow_nodev (nil)
   #  don't raise error even if no target device available
   # @return [Logger]
-  def self.logger logdev=nil, options={}
+  def self.create logdev=nil, options={}
     stdout     = options[:stdout] || true
     stderr     = options[:stderr] || false
     shift_age  = options[:shift_age]  || 0
